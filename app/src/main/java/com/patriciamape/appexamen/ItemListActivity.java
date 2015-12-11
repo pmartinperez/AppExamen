@@ -71,6 +71,9 @@ public class ItemListActivity extends AppCompatActivity
         }
 
         // TODO: If exposing deep links into your app, handle intents here.
+        //
+
+
     }
 
     /**
@@ -79,6 +82,10 @@ public class ItemListActivity extends AppCompatActivity
      */
     @Override
     public void onItemSelected(String id) {
+        boolean dual_pane = getResources().getBoolean(R.bool.dual_pane);
+        if(dual_pane){
+            Toast.makeText(ItemListActivity.this, "Tumbado", Toast.LENGTH_SHORT).show();
+        }
         if (mTwoPane) {
             // In two-pane mode, show the detail view in this activity by
             // adding or replacing the detail fragment using a
@@ -108,7 +115,8 @@ public class ItemListActivity extends AppCompatActivity
             textview1.setText(" ");
     }
 
-    //Cuando cerremos la activity del detalle se lanza este metodo
+    //Cuando cerremos la activity del detalle se lanza este metodo. Diferenciamos los intents con la
+    // variable REQUEST CODE que introducimos en el metodo startActivityForResult()
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intentData) {//REQUEST CODE, RESULT_OK, dato enviado
 
