@@ -1,5 +1,6 @@
 package com.patriciamape.appexamen;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -94,7 +96,8 @@ public class ItemListActivity extends AppCompatActivity
             // for the selected item ID.
             Intent detailIntent = new Intent(this, ItemDetailActivity.class);
             detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
-            startActivity(detailIntent);
+            //se inicia otra activity de la que se espera que devuelva un dato
+            startActivityForResult(detailIntent, 1);
         }
     }
 
@@ -103,5 +106,17 @@ public class ItemListActivity extends AppCompatActivity
         TextView textview1 = (TextView) findViewById(R.id.item_detail);
         //if (textview1 != null)
             textview1.setText(" ");
+    }
+
+    //Cuando cerremos la activity del detalle se lanza este metodo
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intentData) {//REQUEST CODE, RESULT_OK, dato enviado
+
+        if(requestCode == 1){
+            if(resultCode == Activity.RESULT_OK){
+                String dato = intentData.getStringExtra("resultado");
+                Toast.makeText(ItemListActivity.this, dato, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

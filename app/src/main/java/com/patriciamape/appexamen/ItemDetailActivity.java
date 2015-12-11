@@ -1,5 +1,6 @@
 package com.patriciamape.appexamen;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -83,10 +84,15 @@ public class ItemDetailActivity extends AppCompatActivity {
     // Metodo del boton Limpiar de la activity del detalle. Creamos un intent para iniciar la activity
     // de la lista de items
     public void botonLimpiar(View view){
-        Intent intent = new Intent(ItemDetailActivity.this, ItemListActivity.class);
+        /*Intent intent = new Intent(ItemDetailActivity.this, ItemListActivity.class);
         String message = "wii";
         intent.putExtra("mensaje", message);
-        startActivity(intent);
+        startActivity(intent);*/
+        Intent intentResultado = new Intent();
+        String dato = "Activity cerrada";
+        intentResultado.putExtra("resultado", dato);//clave,valor
+        setResult(Activity.RESULT_OK,intentResultado); //RESULT_OK manda un mensaje de que fue bien
+        finish();
 
     }
 }
