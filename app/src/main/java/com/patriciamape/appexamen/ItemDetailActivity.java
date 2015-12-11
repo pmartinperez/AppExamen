@@ -79,4 +79,14 @@ public class ItemDetailActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    // Metodo del boton Limpiar de la activity del detalle. Creamos un intent para iniciar la activity
+    // de la lista de items
+    public void botonLimpiar(View view){
+        Intent intent = new Intent(ItemDetailActivity.this, ItemListActivity.class);
+        String message = "wii";
+        intent.putExtra("mensaje", message);
+        startActivity(intent);
+
+    }
 }
