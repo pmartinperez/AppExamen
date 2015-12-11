@@ -1,5 +1,6 @@
 package com.patriciamape.appexamen;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.TextView;
 
 
 /**
@@ -94,5 +96,12 @@ public class ItemListActivity extends AppCompatActivity
             detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
         }
+    }
+
+    //Metodo del boton Limpiar del fragment del detalle.
+    public void botonLimpiar(View view){
+        TextView textview1 = (TextView) findViewById(R.id.item_detail);
+        if (textview1 != null)
+            textview1.setText(" ");
     }
 }
