@@ -82,7 +82,10 @@ public class ItemListActivity extends AppCompatActivity
      */
     @Override
     public void onItemSelected(String id) {
+        //Recogemos la variable definida en el config.xml
         boolean dual_pane = getResources().getBoolean(R.bool.dual_pane);
+        //Al pulsar un item, si la variable tiene valor True, es decir, el dispositivo se encuentra en posicion landscape
+        // mostramos un mensaje emergente
         if(dual_pane){
             Toast.makeText(ItemListActivity.this, "Tumbado", Toast.LENGTH_SHORT).show();
         }
