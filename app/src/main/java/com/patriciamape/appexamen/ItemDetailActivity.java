@@ -88,6 +88,8 @@ public class ItemDetailActivity extends AppCompatActivity {
         String message = "wii";
         intent.putExtra("mensaje", message);
         startActivity(intent);*/
+        // Esta vez creamos un intent con el dato a enviar e informacion de que fue bien.
+        // Cerramos la activity
         Intent intentResultado = new Intent();
         String dato = "Activity cerrada";
         intentResultado.putExtra("resultado", dato);//clave,valor

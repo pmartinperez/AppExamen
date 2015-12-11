@@ -96,7 +96,7 @@ public class ItemListActivity extends AppCompatActivity
             // for the selected item ID.
             Intent detailIntent = new Intent(this, ItemDetailActivity.class);
             detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
-            //se inicia otra activity de la que se espera que devuelva un dato
+            //se inicia otra activity de la que se espera que devuelva un dato. El REQUEST CODE es 1.
             startActivityForResult(detailIntent, 1);
         }
     }
